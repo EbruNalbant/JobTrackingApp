@@ -52,6 +52,7 @@ const AddJob = () => {
         <div className="field">
           <label>Status</label>
           <select name="status">
+            <option hidden>Choose</option>
             {statusOptions.map((opt, i) => (
               <option key={i}>{opt.label}</option>
             ))}
@@ -60,6 +61,7 @@ const AddJob = () => {
         <div className="field">
           <label>Type</label>
           <select name="type">
+            <option hidden>Choose</option>
             {typeOptions.map((opt, i) => (
               <option key={i}>{opt.label}</option>
             ))}

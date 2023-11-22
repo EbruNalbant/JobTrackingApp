@@ -35,10 +35,54 @@ const jobSlice = createSlice({
         (job) => job.type === action.payload
       );
     },
+    sortJobs: (state, action) => {
+      switch (action.payload) {
+        case "a-z":
+          state.filteredJobs.sort((a, b) => {
+            if (a.company < b.company) return -1;
+            if (a.company > b.company) return 1;
+            return 0;
+          });
+          break;
+        case "z-a":
+          state.filteredJobs.sort((a, b) => {
+            if (a.company < b.company) return 1;
+            if (a.company > b.company) return -1;
+            return 0;
+          });
+          break;
+
+        case "The latest":
+          state.filteredJobs.sort(
+            (a, b) => new Date(b.date) - new Date(a.date)
+          );
+          break;
+
+        case "The earliest":
+          state.filteredJobs.sort(
+            (a, b) => new Date(a.date) - new Date(b.date)
+          );
+          break;
+        default:
+          break;
+      }
+
+      return state;
+    },
+    clearFilters: (state) => {
+      state.filteredJobs = state.jobs;
+    },
   },
 });
 
-export const { setJobs, addJob, filterBySearch, filterByStatus, filterByType } =
-  jobSlice.actions;
+export const {
+  setJobs,
+  addJob,
+  filterBySearch,
+  filterByStatus,
+  filterByType,
+  sortJobs,
+  clearFilters,
+} = jobSlice.actions;
 
 export default jobSlice.reducer;

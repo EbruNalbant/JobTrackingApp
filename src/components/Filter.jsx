@@ -4,6 +4,8 @@ import {
   filterBySearch,
   filterByStatus,
   filterByType,
+  sortJobs,
+  clearFilters,
 } from "../redux/jobSlice";
 
 const Filter = () => {
@@ -17,6 +19,10 @@ const Filter = () => {
 
   const handleType = (e) => {
     dispatch(filterByType(e.target.value));
+  };
+
+  const handleSort = (e) => {
+    dispatch(sortJobs(e.target.value));
   };
   return (
     <section className="filter-sec">
@@ -46,13 +52,15 @@ const Filter = () => {
         </div>
         <div className="field">
           <label>Order</label>
-          <select>
+          <select onChange={handleSort}>
             {sortOptions.map((opt, i) => (
               <option key={i}>{opt}</option>
             ))}
           </select>
         </div>
-        <button>Clear the Filters</button>
+        <button type="button" onClick={() => dispatch(clearFilters())}>
+          Clear the Filters
+        </button>
       </form>
     </section>
   );

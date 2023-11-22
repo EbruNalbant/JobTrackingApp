@@ -32,4 +32,4 @@ export const typeOptions = [
   },
 ];
 
-export const sortOptions = ["a-z", "z-a", "The latest", "The earlist"];
+export const sortOptions = ["a-z", "z-a", "The latest", "The earliest"];
