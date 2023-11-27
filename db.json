@@ -89,6 +89,16 @@
       "status": "Rejected",
       "type": "Remote",
       "date": "3/28/2023"
+    },
+
+    {
+      "position": "data analyst",
+      "company": "amazon",
+      "location": "",
+      "status": "Choose",
+      "type": "Choose",
+      "id": "14d6b95c-2e08-4614-bbb3-6d86b37fc93c",
+      "date": "11/27/2023"
     }
   ]
 }
